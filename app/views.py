@@ -61,6 +61,14 @@ def edit_post(post_id):
     return render_template("make-post.html", edit=True, form=edit_form)
 
 
+@views.route("/delete/<int:post_id>")
+def delete_post(post_id):
+    post_to_delete = Post.query.get(post_id)
+    db.session.delete(post_to_delete)
+    db.session.commit()
+    return redirect(url_for('views.home'))
+
+
 @views.route("/about")
 def about():
     return render_template('about.html')
