@@ -25,7 +25,11 @@
                 <p> {{ post.body | safe() }}
                 </p>
             </div>
+
         </div>
+        <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase"
+                href="{{url_for('views.edit_post', post_id=post.id)}}">Edit Post</a></div>
     </div>
 </article>
+
 {% include 'footer.html' %}
